@@ -3,60 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socia Master | Next-Gen AI</title>
+    <title>Socia Master | AI Hub</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="glass-nav">
+
+    <aside class="sidebar">
         <div class="logo">SOCIA<span>MASTER</span></div>
-        <div class="nav-links">
-            <a href="#" onclick="showSection('home')">Home</a>
-            <a href="#" onclick="showSection('tools')">AI Studio</a>
-            <a href="#" onclick="showSection('library')">Library</a>
-        </div>
-        <button class="btn-primary">Connect API</button>
-    </nav>
+        <nav>
+            <button onclick="showSection('home')" class="nav-btn active">Home</button>
+            <button onclick="showSection('image-gen')" class="nav-btn">DALL·E 3 Image</button>
+            <button onclick="showSection('video-gen')" class="nav-btn">Veo 3 Video</button>
+            <button onclick="showSection('library')" class="nav-btn">Library</button>
+        </nav>
+        <div class="status-tag">API: <span id="api-status">Connected</span></div>
+    </aside>
 
-    <section id="home" class="active-section">
-        <div class="hero">
-            <h1 class="glow-text">Create the Future <br>with Socia Master</h1>
-            <p>The ultimate AI workspace for high-fidelity images and cinematic videos.</p>
-            <div class="hero-btns">
-                <button class="btn-primary" onclick="showSection('tools')">Start Creating</button>
-                <button class="btn-outline">View Showcase</button>
+    <main class="content">
+        
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <h1>Welcome to Socia Master</h1>
+                <p>The premium portal for DALL·E 3 and Veo 3 generations.</p>
+                <div class="stats-grid">
+                    <div class="stat-card"><h3>100%</h3><p>Working API</p></div>
+                    <div class="stat-card"><h3>HD</h3><p>Output Quality</p></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="tools" class="hidden">
-        <div class="section-header">
-            <h2>AI Studio</h2>
-        </div>
-        <div class="bento-grid">
-            <div class="bento-item large glass-card">
-                <h3>Text to Image</h3>
-                <textarea id="imgPrompt" placeholder="A futuristic cyberpunk oasis..."></textarea>
-                <button onclick="generateAI('image')" class="btn-gen">Generate</button>
-                <div id="imgOutput" class="preview-area">Result appears here...</div>
+        <section id="image-gen" class="tab-content">
+            <div class="tool-header">
+                <h2>Text to Image</h2>
+                <span class="badge">DALL·E 3 Model</span>
             </div>
-            <div class="bento-item glass-card">
-                <h3>Image to Video</h3>
-                <input type="file" id="videoSource">
-                <button onclick="generateAI('video')" class="btn-gen">Animate</button>
-                <div id="vidOutput" class="preview-area">Video preview...</div>
+            <div class="input-container">
+                <textarea id="imgPrompt" placeholder="Describe your image in detail..."></textarea>
+                <button onclick="runImageGen()" id="genImgBtn">Generate Image</button>
             </div>
-        </div>
-    </section>
+            <div id="imageOutput" class="output-window"></div>
+        </section>
 
-    <section id="library" class="hidden">
-        <div class="section-header">
+        <section id="video-gen" class="tab-content">
+            <div class="tool-header">
+                <h2>Image to Video</h2>
+                <span class="badge">Veo 3 Engine</span>
+            </div>
+            <div class="input-container">
+                <input type="text" id="vidPrompt" placeholder="Describe the cinematic motion...">
+                <button onclick="runVideoGen()" id="genVidBtn">Animate with Veo 3</button>
+            </div>
+            <div id="videoOutput" class="output-window"></div>
+        </section>
+
+        <section id="library" class="tab-content">
             <h2>Your Library</h2>
-        </div>
-        <div class="gallery-grid" id="gallery">
-            <div class="gallery-item glass-card"><p>No items saved yet.</p></div>
-        </div>
-    </section>
+            <div class="gallery" id="mainGallery">
+                </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
