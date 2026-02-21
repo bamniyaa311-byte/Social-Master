@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socia Master | AI Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SOCIA MASTER</h1>
+        <p>Text-to-Image & Image-to-Video AI</p>
+    </header>
+
+    <main class="container">
+        <section id="image-gen">
+            <h2>1. Text to Image</h2>
+            <div class="input-group">
+                <input type="text" id="imagePrompt" placeholder="Describe the image you want...">
+                <button onclick="generateImage()">Generate Image</button>
+            </div>
+            <div id="imageResult" class="result-box">
+                <p>Your image will appear here...</p>
+            </div>
+        </section>
+
+        <section id="video-gen">
+            <h2>2. Image to Video</h2>
+            <div class="input-group">
+                <input type="file" id="imageInput" accept="image/*">
+                <button onclick="generateVideo()">Animate Image</button>
+            </div>
+            <div id="videoResult" class="result-box">
+                <p>Your video will appear here...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
