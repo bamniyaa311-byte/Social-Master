@@ -1,7 +1,7 @@
 {
   "name": "socia-master",
   "version": "1.0.0",
-  "homepage": "https://yourusername.github.io/socia-master",
+  "homepage": "https://studio.socialmaster.qzz.io/",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
