@@ -3,38 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socia Master | AI Hub</title>
+    <title>Socia Master | Next-Gen AI</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>SOCIA MASTER</h1>
-        <p>Text-to-Image & Image-to-Video AI</p>
-    </header>
+    <nav class="glass-nav">
+        <div class="logo">SOCIA<span>MASTER</span></div>
+        <div class="nav-links">
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('tools')">AI Studio</a>
+            <a href="#" onclick="showSection('library')">Library</a>
+        </div>
+        <button class="btn-primary">Connect API</button>
+    </nav>
 
-    <main class="container">
-        <section id="image-gen">
-            <h2>1. Text to Image</h2>
-            <div class="input-group">
-                <input type="text" id="imagePrompt" placeholder="Describe the image you want...">
-                <button onclick="generateImage()">Generate Image</button>
+    <section id="home" class="active-section">
+        <div class="hero">
+            <h1 class="glow-text">Create the Future <br>with Socia Master</h1>
+            <p>The ultimate AI workspace for high-fidelity images and cinematic videos.</p>
+            <div class="hero-btns">
+                <button class="btn-primary" onclick="showSection('tools')">Start Creating</button>
+                <button class="btn-outline">View Showcase</button>
             </div>
-            <div id="imageResult" class="result-box">
-                <p>Your image will appear here...</p>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="video-gen">
-            <h2>2. Image to Video</h2>
-            <div class="input-group">
-                <input type="file" id="imageInput" accept="image/*">
-                <button onclick="generateVideo()">Animate Image</button>
+    <section id="tools" class="hidden">
+        <div class="section-header">
+            <h2>AI Studio</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-item large glass-card">
+                <h3>Text to Image</h3>
+                <textarea id="imgPrompt" placeholder="A futuristic cyberpunk oasis..."></textarea>
+                <button onclick="generateAI('image')" class="btn-gen">Generate</button>
+                <div id="imgOutput" class="preview-area">Result appears here...</div>
             </div>
-            <div id="videoResult" class="result-box">
-                <p>Your video will appear here...</p>
+            <div class="bento-item glass-card">
+                <h3>Image to Video</h3>
+                <input type="file" id="videoSource">
+                <button onclick="generateAI('video')" class="btn-gen">Animate</button>
+                <div id="vidOutput" class="preview-area">Video preview...</div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section id="library" class="hidden">
+        <div class="section-header">
+            <h2>Your Library</h2>
+        </div>
+        <div class="gallery-grid" id="gallery">
+            <div class="gallery-item glass-card"><p>No items saved yet.</p></div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
